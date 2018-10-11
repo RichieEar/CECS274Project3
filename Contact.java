@@ -9,7 +9,7 @@ package Project3;
 */
 
 
-public class Contact {
+public class Contact implements Comparable<Contact> {
 	private String name;
 	private String number;
 	private String email;
@@ -41,6 +41,15 @@ public class Contact {
 		
 		return String.format("%-20s%-20s%-20s%-20s",name,number,email,notes);
 	
+	}
+	/**
+	 * compares this contact to contact c based on lexographicval order of name.
+	 * @param c - Some other contact it compares to
+	 * @return - returns -1 if it comes first 0 if its the same 1 if its greater than
+	 */
+	public int compareTo(Contact c) {
+		
+		return name.compareTo(c.getName());
 	}
 	
 	
