@@ -1,4 +1,4 @@
-package Project3;
+
 /**
 *Stores and modifies following information:
 *Name
