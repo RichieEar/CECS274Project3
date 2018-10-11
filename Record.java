@@ -6,5 +6,7 @@
  *
  */
 public class Record {
-
+	String id;
+	String date;
+	boolean IO;
 }
