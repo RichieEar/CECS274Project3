@@ -1,3 +1,5 @@
+package Project3;
+
 
 /**
 *Stores and modifies following information:
@@ -7,8 +9,6 @@
 *Notes
 *@author Thomas McSwain
 */
-
-
 public class Contact implements Comparable<Contact> {
 	private String name;
 	private String number;
