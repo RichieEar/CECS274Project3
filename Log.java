@@ -45,7 +45,7 @@ public class Log {
 				System.out.println(log.get(i).toString());
 			}else {
 				//If the record is a duplicate we want to print ID (# of records).
-				System.out.printf("%-10s(%d)",log.get(i).getId(),log.get(i).size());
+				System.out.printf("%-10s(%d)%n",log.get(i).getId(),log.get(i).size());
 			}
 			
 		}

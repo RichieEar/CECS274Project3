@@ -38,8 +38,11 @@ public class Contact implements Comparable<Contact> {
 	 * @return formated string 
 	 */
 	public String toString() {
-		
-		return String.format("%-20s%-20s%-20s%-20s",name,number,email,notes);
+		StringBuilder pNum = new StringBuilder(number);
+		pNum.insert(0,"(");
+		pNum.insert(4,")");
+		pNum.insert(8,"-");
+		return String.format("%-20s%-20s%-20s%-20s",name,pNum.toString(),email,notes);
 	
 	}
 	/**
