@@ -34,63 +34,26 @@ public class Phone extends Phone_Book{
 						System.out.println("Are you sure you want to add? 'y'/'n'");
 						nextInput = scan.nextLine();
 						if (nextInput.equalsIgnoreCase("y")) {
-							System.out.println("Enter a name");
-							name = scan.nextLine();
-							System.out.println("Enter a number");
-							number = scan.nextLine();
-							System.out.println("Enter an email");
-							email = scan.nextLine();
-							System.out.println("Enter a note or enter a '0' if nothing to note");
-							notes = scan.nextLine();
-							Contact c = new Contact(name, number, email, notes);
-							phone.add(c);
-						}
-						else {
-							continue;
+							phone.addContact();
 						}
 					}
 					else if (nextInput.equalsIgnoreCase("Edit")) {
 						System.out.println("Are you sure you want to edit? 'y'/'n'");
 						nextInput = scan.nextLine();
 						if (nextInput.equalsIgnoreCase("y")) {
-							System.out.println("Enter a name to edit");
-							name = scan.nextLine();
-							for (int i = 0; i < phone.size(); i++) {
-								if (phone.getContact(i).getName().equalsIgnoreCase(name)) {
-									System.out.println("'Name'\n'Number'\n"
-											+ "'Email'\n'Note'\n"
-											+ "What do you want to edit?");
-									nextInput = scan.nextLine();
-									if (nextInput.equalsIgnoreCase("Name")) {
-										System.out.println("Edit the name here");
-										name = scan.nextLine();
-										phone.getContact(i).setName(name);
-									}
-									if (nextInput.equalsIgnoreCase("Number")) {
-										System.out.println("Edit the number here");
-										number = scan.nextLine();
-										phone.getContact(i).setNumber(number);
-									}
-									if (nextInput.equalsIgnoreCase("Email")) {
-										System.out.println("Edit the email here");
-										email = scan.nextLine();
-										phone.getContact(i).setEmail(email);
-									}
-									if (nextInput.equalsIgnoreCase("Note")) {
-										System.out.println("Edit the notes here");
-										notes = scan.nextLine();
-										phone.getContact(i).setNote(notes);
-									}
-								}
-							}
-						}
-						else {
-							System.out.println("That name is not in the phone book");
-							continue;
+							System.out.println("Enter a contact to edit.");
+							nextInput = scan.nextLine();
+							phone.editContact(nextInput);
 						}
 					}
 					else if (nextInput.equalsIgnoreCase("Delete")) {
-						
+						System.out.println("Are you sure you want to delete? 'y'/'n'");
+						nextInput = scan.nextLine();
+						if (nextInput.equalsIgnoreCase("y")) {
+							System.out.println("Enter a contact to delete.");
+							nextInput = scan.nextLine();
+							phone.deleteContact(nextInput);
+						}
 					}
 					else if (nextInput.equalsIgnoreCase("Display")) {
 						phone.display();
