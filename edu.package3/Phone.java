@@ -1,13 +1,14 @@
 package CECS274;
 
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import CECS274.Phone_Book;
 import CECS274.Contact;
 import CECS274.Favorites;
 import CECS274.Record;
 
-public class Phone {
+public class Phone extends Phone_Book{
 
 	public static void main(String[] args) {
 		String name;
@@ -49,7 +50,44 @@ public class Phone {
 						}
 					}
 					else if (nextInput.equalsIgnoreCase("Edit")) {
-						
+						System.out.println("Are you sure you want to edit? 'y'/'n'");
+						nextInput = scan.nextLine();
+						if (nextInput.equalsIgnoreCase("y")) {
+							System.out.println("Enter a name to edit");
+							name = scan.nextLine();
+							for (int i = 0; i < phone.size(); i++) {
+								if (phone.getContact(i).getName().equalsIgnoreCase(name)) {
+									System.out.println("'Name'\n'Number'\n"
+											+ "'Email'\n'Note'\n"
+											+ "What do you want to edit?");
+									nextInput = scan.nextLine();
+									if (nextInput.equalsIgnoreCase("Name")) {
+										System.out.println("Edit the name here");
+										name = scan.nextLine();
+										phone.getContact(i).setName(name);
+									}
+									if (nextInput.equalsIgnoreCase("Number")) {
+										System.out.println("Edit the number here");
+										number = scan.nextLine();
+										phone.getContact(i).setNumber(number);
+									}
+									if (nextInput.equalsIgnoreCase("Email")) {
+										System.out.println("Edit the email here");
+										email = scan.nextLine();
+										phone.getContact(i).setEmail(email);
+									}
+									if (nextInput.equalsIgnoreCase("Note")) {
+										System.out.println("Edit the notes here");
+										notes = scan.nextLine();
+										phone.getContact(i).setNote(notes);
+									}
+								}
+							}
+						}
+						else {
+							System.out.println("That name is not in the phone book");
+							continue;
+						}
 					}
 					else if (nextInput.equalsIgnoreCase("Delete")) {
 						
@@ -73,6 +111,10 @@ public class Phone {
 				}
 				catch (InputMismatchException e) {
 					System.out.println("You've entered in something wrong. Let's try again.");
+					continue;
+				}
+				catch (NoSuchElementException e) {
+					System.out.println("The entry couldn't be found.");
 					continue;
 				}
 			}
