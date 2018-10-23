@@ -2,10 +2,18 @@ package CECS274;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import CECS274.Phone_Book;
+import CECS274.Contact;
+import CECS274.Favorites;
+import CECS274.Record;
 
 public class Phone {
 
 	public static void main(String[] args) {
+		String name;
+		String number;
+		String email;
+		String notes;
 		Scanner scan = new Scanner(System.in);
 		Phone_Book phone = new Phone_Book();
 		//Checks if you want to use the phone book
@@ -22,7 +30,23 @@ public class Phone {
 							+ "What would you like to do?");
 					String nextInput = scan.nextLine();
 					if (nextInput.equalsIgnoreCase("Add")) {
-						
+						System.out.println("Are you sure you want to add? 'y'/'n'");
+						nextInput = scan.nextLine();
+						if (nextInput.equalsIgnoreCase("y")) {
+							System.out.println("Enter a name");
+							name = scan.nextLine();
+							System.out.println("Enter a number");
+							number = scan.nextLine();
+							System.out.println("Enter an email");
+							email = scan.nextLine();
+							System.out.println("Enter a note or enter a '0' if nothing to note");
+							notes = scan.nextLine();
+							Contact c = new Contact(name, number, email, notes);
+							phone.add(c);
+						}
+						else {
+							continue;
+						}
 					}
 					else if (nextInput.equalsIgnoreCase("Edit")) {
 						
@@ -31,7 +55,7 @@ public class Phone {
 						
 					}
 					else if (nextInput.equalsIgnoreCase("Display")) {
-						
+						phone.display();
 					}
 					else if (nextInput.equalsIgnoreCase("Favorites")) {
 						
@@ -56,5 +80,6 @@ public class Phone {
 		else {
 			System.out.println("Maybe next time!");
 		}
+		scan.close();
 	}
 }
