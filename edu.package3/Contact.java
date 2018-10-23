@@ -9,7 +9,7 @@ package CECS274;
 *Notes
 *@author Thomas McSwain
 */
-public class Contact extends Phone_Book implements Comparable<Contact>{
+public class Contact extends PhoneBook implements Comparable<Contact>{
 	private String name;
 	private String number;
 	private String email;

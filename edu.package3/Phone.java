@@ -3,12 +3,12 @@ package CECS274;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import CECS274.Phone_Book;
+import CECS274.PhoneBook;
 import CECS274.Contact;
 import CECS274.Favorites;
 import CECS274.Record;
 
-public class Phone extends Phone_Book{
+public class Phone extends PhoneBook{
 
 	public static void main(String[] args) {
 		String name;
@@ -16,7 +16,7 @@ public class Phone extends Phone_Book{
 		String email;
 		String notes;
 		Scanner scan = new Scanner(System.in);
-		Phone_Book phone = new Phone_Book();
+		PhoneBook phone = new PhoneBook();
 		//Checks if you want to use the phone book
 		System.out.println("Would you like to access your phone book? 'Yes' or 'No' ");
 		String access = scan.nextLine();
