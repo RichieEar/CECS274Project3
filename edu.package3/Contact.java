@@ -1,4 +1,4 @@
-package edu.project3;
+package CECS274;
 
 
 /**
@@ -13,7 +13,7 @@ public class Contact implements Comparable<Contact> {
 	private String name;
 	private String number;
 	private String email;
-	private String notes;
+	private String notes; 
 	/**
 	 * 
 	 * @param name - name
@@ -42,7 +42,7 @@ public class Contact implements Comparable<Contact> {
 		pNum.insert(0,"(");
 		pNum.insert(4,")");
 		pNum.insert(8,"-");
-		return String.format("%-20s%-20s%-20s%-20s",name,pNum.toString(),email,notes);
+		return String.format("%-20s%-20s%-20s\t%-20s",name,pNum.toString(),email,notes);
 	
 	}
 	/**
@@ -50,7 +50,7 @@ public class Contact implements Comparable<Contact> {
 	 * @param c - Some other contact it compares to
 	 * @return - returns -1 if it comes first 0 if its the same 1 if its greater than
 	 */
-	public int compareTo(Contact c) {
+	public int compareTo(Contact c) { 
 		
 		return name.compareTo(c.getName());
 	}
